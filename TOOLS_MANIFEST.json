@@ -1,0 +1,500 @@
+{
+    "tools": [
+      {
+        "name": "code-health",
+        "purpose": "unified_code_quality_analysis",
+        "description": "Unified code health analysis combining all quality tools",
+        "input": "directory_path",
+        "output": "health_score_priorities_dashboard",
+        "output_stream": "stdout",
+        "path": "/Users/wv2023/projects/AI/tools/code-health/code-health",
+        "options": {
+          "-f": {
+            "values": ["summary", "json", "dashboard"],
+            "default": "summary",
+            "description": "Output format"
+          },
+          "-o": {
+            "type": "string",
+            "description": "Output file (default: stdout)"
+          }
+        },
+        "features": {
+          "health_score": "0-100 overall code quality score",
+          "cross_correlation": "Combines complexity, coverage, deps, metrics, docs",
+          "priority_ranking": "Files ranked by refactoring urgency",
+          "html_dashboard": "Interactive visualization with charts"
+        }
+      },
+      {
+        "name": "migration-planner",
+        "purpose": "complex_migration_orchestration",
+        "description": "AI-optimized migration planning using comprehensive code analysis",
+        "input": "directory_path",
+        "output": "migration_plan_with_phases",
+        "output_stream": "stdout",
+        "path": "/Users/wv2023/projects/AI/tools/migration-planner/migration-planner",
+        "options": {
+          "-t": {
+            "values": ["feature", "api", "architecture", "platform", "refactor"],
+            "default": "feature",
+            "description": "Type of migration to plan"
+          },
+          "-p": {
+            "type": "string",
+            "description": "Search pattern for affected code (e.g., 'geofence', 'auth')"
+          }
+        },
+        "migration_types": {
+          "feature": "New features or capabilities affecting existing code",
+          "api": "API changes, breaking changes, interface updates",
+          "architecture": "Major structural changes, framework switches",
+          "platform": "Platform/technology migrations (React->Vue, Node->Deno)",
+          "refactor": "Large-scale code improvements and modernization"
+        },
+        "analysis_components": {
+          "health_check": "Current code health score assessment",
+          "dependency_analysis": "Circular dependencies and coupling issues",
+          "test_coverage": "Coverage percentage and gaps identification",
+          "type_extraction": "API surface analysis for migrations",
+          "code_metrics": "Scope assessment (files, LOC)",
+          "pattern_search": "Find all code affected by migration"
+        },
+        "output_sections": {
+          "executive_summary": "Health score, coverage, scope, risks, duration estimate",
+          "risk_assessment": "CRITICAL/HIGH/MEDIUM/LOW risks with mitigations",
+          "migration_phases": "5-6 phases with tasks, priorities, and time estimates",
+          "migration_checklist": "Required and optional items for each phase",
+          "affected_files": "List of files matching pattern with line numbers"
+        },
+        "phases_generated": [
+          "Phase 0: Preparation & Risk Mitigation",
+          "Phase 1: API & Type Definitions", 
+          "Phase 2: Core Implementation",
+          "Phase 3: Testing & Validation",
+          "Phase 4: Rollout & Monitoring",
+          "Phase 5: Cleanup & Optimization"
+        ],
+        "risk_types_detected": [
+          "Low test coverage",
+          "Circular dependencies",
+          "Poor code health",
+          "Large codebase scale"
+        ],
+        "migration_paths": {
+          "blocked": "Critical risks prevent migration",
+          "cautious": "Proceed with extra safeguards",
+          "standard": "Ready for normal migration"
+        },
+        "features": {
+          "pattern_based_search": "Find all code related to migration target",
+          "risk_prioritization": "Automatic risk assessment and mitigation planning",
+          "phase_generation": "Creates detailed phases with time estimates",
+          "checklist_creation": "Actionable items marked required/optional",
+          "ai_recommendations": "Strategic guidance based on codebase state"
+        }
+      },
+      {
+        "name": "refactor-analyzer",
+        "purpose": "refactoring_guidance_orchestrator",
+        "description": "AI-optimized refactoring analysis using all quality tools",
+        "input": "directory_path",
+        "output": "refactoring_recommendations",
+        "output_stream": "stdout",
+        "path": "/Users/wv2023/projects/AI/tools/refactor-analyzer/refactor-analyzer",
+        "options": {
+          "-p": {
+            "values": ["quick", "deep", "architecture"],
+            "default": "quick",
+            "description": "Analysis profile depth"
+          }
+        },
+        "profiles": {
+          "quick": "Fast analysis for immediate improvements (functions, files, docs)",
+          "deep": "Structural analysis including dependencies, APIs, coverage",
+          "architecture": "Full system review with health score, types, organization"
+        },
+        "features": {
+          "ai_optimized": "Output formatted for AI assistant consumption",
+          "priority_ranking": "Critical/High/Medium/Low recommendations",
+          "effort_estimation": "Low/Medium/High/VeryHigh for each recommendation",
+          "orchestration": "Runs multiple tools and cross-correlates findings"
+        }
+      },
+      {
+        "name": "mermaid-gen",
+        "purpose": "diagram_generation",
+        "description": "Generate mermaid diagrams from directory structure",
+        "input": "directory_path",
+        "output": "mermaid_diagram_png",
+        "path": "/Users/wv2023/projects/AI/tools/mermaid/mermaid-gen",
+        "default_output": "diagram.png",
+        "options": {
+          "-t": {
+            "values": ["flowchart", "graph", "mindmap", "grid"],
+            "default": "flowchart",
+            "description": "Diagram type"
+          },
+          "-o": {
+            "type": "string",
+            "description": "Output filename"
+          },
+          "-d": {
+            "type": "number",
+            "description": "Max depth to traverse"
+          }
+        }
+      },
+      {
+        "name": "code-deps",
+        "purpose": "dependency_visualization",
+        "description": "Visualize code dependencies between files",
+        "input": "directory_path",
+        "output": "dependency_graph_png",
+        "path": "/Users/wv2023/projects/AI/tools/code-depencdencies/code-deps",
+        "default_output": "code_dependencies.png",
+        "options": {
+          "-o": {
+            "type": "string",
+            "description": "Output filename"
+          },
+          "-d": {
+            "type": "number",
+            "description": "Max depth to traverse"
+          },
+          "--no-external": {
+            "type": "boolean",
+            "description": "Skip external dependencies"
+          }
+        }
+      },
+      {
+        "name": "fs-json",
+        "purpose": "file_structure_extraction",
+        "description": "Generate JSON representation of file system",
+        "input": "directory_path",
+        "output": "json_file_tree",
+        "path": "/Users/wv2023/projects/AI/tools/json/fs-json",
+        "default_output": "file_system.json",
+        "options": {
+          "-o": {
+            "type": "string",
+            "description": "Output filename"
+          },
+          "-d": {
+            "type": "number",
+            "description": "Max depth to traverse"
+          },
+          "--include-hidden": {
+            "type": "boolean",
+            "description": "Include hidden files"
+          }
+        }
+      },
+      {
+        "name": "type-extract",
+        "purpose": "type_extraction_stdout",
+        "description": "Extract TypeScript types to stdout (for piping)",
+        "input": "directory_path",
+        "output": "typescript_types_text",
+        "output_stream": "stdout",
+        "path": "/Users/wv2023/projects/AI/tools/typeExtract/type-extract",
+        "options": {
+          "-f": {
+            "values": ["summary", "detailed", "json", "markdown"],
+            "default": "summary",
+            "description": "Output format"
+          },
+          "-i": {
+            "type": "array",
+            "description": "Patterns to ignore"
+          }
+        }
+      },
+      {
+        "name": "type-extractor",
+        "purpose": "type_extraction_file",
+        "description": "Extract TypeScript types to file",
+        "input": "directory_path",
+        "output": "typescript_types_file",
+        "path": "/Users/wv2023/projects/AI/tools/typeExtract/type-extractor",
+        "default_outputs": {
+          "summary": "types_summary.txt",
+          "detailed": "types_detailed.txt",
+          "json": "types.json",
+          "markdown": "types.md"
+        },
+        "options": {
+          "-f": {
+            "values": ["summary", "detailed", "json", "markdown"],
+            "default": "summary",
+            "description": "Output format"
+          },
+          "-o": {
+            "type": "string",
+            "description": "Custom output filename"
+          },
+          "-i": {
+            "type": "array",
+            "description": "Patterns to ignore"
+          }
+        }
+      },
+      {
+        "name": "dep-analyzer",
+        "purpose": "dependency_analysis",
+        "description": "Analyze import dependencies and circular references",
+        "input": "directory_path",
+        "output": "import_chains_circular_deps",
+        "output_stream": "stdout",
+        "path": "/Users/wv2023/projects/AI/tools/dep-analizer/dep-analyzer",
+        "options": {
+          "-f": {
+            "values": ["summary", "graph", "chains", "circular"],
+            "default": "summary",
+            "description": "Output format"
+          },
+          "--circular-check": {
+            "type": "boolean",
+            "description": "Check for circular dependencies"
+          },
+          "--chains": {
+            "type": "string",
+            "description": "Show import chains to target"
+          },
+          "-d": {
+            "type": "number",
+            "default": 10,
+            "description": "Max depth for chains"
+          },
+          "-i": {
+            "type": "array",
+            "description": "Patterns to ignore"
+          }
+        }
+      },
+      {
+        "name": "complexity-check",
+        "purpose": "complexity_analysis",
+        "description": "Analyze cyclomatic complexity",
+        "input": "directory_path",
+        "output": "cyclomatic_complexity_metrics",
+        "output_stream": "stdout",
+        "path": "/Users/wv2023/projects/AI/tools/metricscomplexity/complexity-check",
+        "options": {
+          "-t": {
+            "type": "number",
+            "default": 10,
+            "description": "Complexity threshold"
+          },
+          "-f": {
+            "values": ["summary", "detailed", "threshold", "json"],
+            "default": "summary",
+            "description": "Output format"
+          },
+          "-s": {
+            "values": ["complexity", "loc", "nesting"],
+            "default": "complexity",
+            "description": "Sort criteria"
+          },
+          "-i": {
+            "type": "array",
+            "description": "Patterns to ignore"
+          }
+        }
+      },
+      {
+        "name": "code-metrics",
+        "purpose": "code_metrics",
+        "description": "Calculate LOC and code metrics",
+        "input": "directory_path",
+        "output": "loc_language_stats",
+        "output_stream": "stdout",
+        "path": "/Users/wv2023/projects/AI/tools/metricscomplexity/code-metrics",
+        "options": {
+          "--loc": {
+            "type": "boolean",
+            "description": "Simple line count only"
+          },
+          "-f": {
+            "values": ["summary", "detailed", "languages", "files", "json"],
+            "default": "summary",
+            "description": "Output format"
+          },
+          "-s": {
+            "values": ["lines", "size", "functions"],
+            "default": "lines",
+            "description": "Sort criteria"
+          },
+          "--top": {
+            "type": "number",
+            "default": 20,
+            "description": "Number of top files to show"
+          },
+          "-e": {
+            "type": "array",
+            "description": "File extensions to analyze"
+          },
+          "-i": {
+            "type": "array",
+            "description": "Patterns to ignore"
+          }
+        }
+      },
+      {
+        "name": "api-usage",
+        "purpose": "api_usage_search",
+        "description": "Find all usages of APIs/functions/classes",
+        "input": "api_name directory_path",
+        "output": "usage_locations_callsites",
+        "output_stream": "stdout",
+        "path": "/Users/wv2023/projects/AI/tools/api-usage-finder/api-usage",
+        "required_args": ["target"],
+        "options": {
+          "-f": {
+            "values": ["summary", "detailed", "callsites", "hierarchy", "json"],
+            "default": "summary",
+            "description": "Output format"
+          },
+          "-g": {
+            "values": ["file", "type"],
+            "default": "file",
+            "description": "Grouping for detailed report"
+          },
+          "-c": {
+            "type": "number",
+            "default": 2,
+            "description": "Context lines to show"
+          },
+          "-e": {
+            "type": "boolean",
+            "description": "Include usage examples"
+          }
+        }
+      },
+      {
+        "name": "test-mapper",
+        "purpose": "test_coverage_mapping",
+        "description": "Map test coverage and find gaps",
+        "input": "directory_path",
+        "output": "coverage_gaps_mapping",
+        "output_stream": "stdout",
+        "path": "/Users/wv2023/projects/AI/tools/test-coverage-mapper/test-mapper",
+        "options": {
+          "-f": {
+            "values": ["summary", "detailed", "gaps", "coverage", "orphans", "json"],
+            "default": "summary",
+            "description": "Output format"
+          },
+          "--coverage-gaps": {
+            "type": "boolean",
+            "description": "Show only untested files (alias for -f gaps)"
+          },
+          "--no-gaps": {
+            "type": "boolean",
+            "description": "Hide gaps in summary"
+          },
+          "-i": {
+            "type": "array",
+            "description": "Patterns to ignore"
+          }
+        }
+      },
+      {
+        "name": "doc-gen",
+        "purpose": "documentation_generation",
+        "description": "Generate documentation from JSDoc/comments",
+        "input": "directory_path",
+        "output": "api_documentation",
+        "output_stream": "stdout",
+        "path": "/Users/wv2023/projects/AI/tools/doc-generator/doc-gen",
+        "options": {
+          "-f": {
+            "values": ["markdown", "html", "json", "summary"],
+            "default": "markdown",
+            "description": "Output format"
+          },
+          "-o": {
+            "type": "string",
+            "description": "Output file (default: stdout)"
+          },
+          "--no-examples": {
+            "type": "boolean",
+            "description": "Exclude code examples"
+          },
+          "-i": {
+            "type": "array",
+            "description": "Patterns to ignore"
+          }
+        }
+      },
+      {
+        "name": "gitingest",
+        "purpose": "repository_content_extraction",
+        "description": "Extract repository content for AI analysis (local or GitHub)",
+        "input": "github_url_or_local_path",
+        "output": "repository_content_text",
+        "output_stream": "file_or_stdout",
+        "path": "/Users/wv2023/projects/AI/tools/git-ingest/gitingest.py",
+        "modes": {
+          "local": "Analyze current repository without URL",
+          "remote": "Extract GitHub repository with URL"
+        },
+        "options": {
+          "-o": {
+            "type": "string",
+            "default": "digest.txt",
+            "description": "Output file path"
+          },
+          "-i": {
+            "type": "array",
+            "description": "Include file patterns (can be used multiple times)"
+          },
+          "-e": {
+            "type": "array",
+            "description": "Exclude file patterns (can be used multiple times)"
+          },
+          "--exclude-common": {
+            "type": "boolean",
+            "description": "Exclude common junk files (deps, build, logs, etc.)"
+          },
+          "-s": {
+            "type": "number",
+            "description": "Maximum file size in bytes"
+          },
+          "-b": {
+            "type": "string",
+            "description": "Specific branch to analyze"
+          },
+          "--stdout": {
+            "type": "boolean",
+            "description": "Output to stdout instead of file"
+          },
+          "--show-ignored": {
+            "type": "boolean",
+            "description": "Show which files/patterns are being ignored"
+          },
+          "--output": {
+            "type": "string",
+            "description": "Output file (local mode)"
+          },
+          "--include-tests": {
+            "type": "boolean",
+            "description": "Include test files (local mode)"
+          }
+        },
+        "features": {
+          "file_filtering": "Include/exclude patterns for precise content extraction",
+          "common_excludes": "Pre-configured exclusions for deps, build files, etc.",
+          "size_limiting": "Skip large files to keep output manageable",
+          "branch_selection": "Analyze specific branches",
+          "ai_optimized": "Output formatted for AI consumption with metadata"
+        }
+      }
+    ],
+    "metadata": {
+      "version": "1.0",
+      "generated": "2024-01-12",
+      "description": "Machine-readable manifest of all available code analysis tools"
+    }
+  }

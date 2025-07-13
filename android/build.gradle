@@ -1,0 +1,75 @@
+buildscript {
+  repositories {
+    google()
+    mavenCentral()
+  }
+  dependencies {
+    classpath("com.android.tools.build:gradle:8.5.2")
+    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.24")
+  }
+}
+
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+def safeExtGet(name, fallback) {
+  rootProject.ext.has(name) ? rootProject.ext.get(name) : fallback
+}
+
+repositories {
+  google()
+  mavenCentral()
+  maven { url "https://repo.maven.apache.org/maven2" }
+}
+
+android {
+  namespace = "expo.modules.damsgeo"
+  compileSdkVersion = safeExtGet("compileSdkVersion", 35)
+
+  defaultConfig {
+    minSdkVersion = safeExtGet("minSdkVersion", 23)
+    targetSdkVersion = safeExtGet("targetSdkVersion", 35)
+    versionCode 1
+    versionName "0.1.0"
+  }
+  
+  lintOptions {
+    abortOnError false
+  }
+  
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_17
+    targetCompatibility JavaVersion.VERSION_17
+  }
+  
+  kotlinOptions {
+    jvmTarget = "17"
+  }
+}
+
+dependencies {
+  // For expo module development, these dependencies are provided by the host app
+  // We only need them for compilation
+  if (findProject(':expo-modules-core') != null) {
+    compileOnly project(':expo-modules-core')
+  } else {
+    // Fallback: compile against the source files directly
+    compileOnly fileTree(dir: '../node_modules/expo-modules-core/android/src/main/java', include: ['**/*.java', '**/*.kt'])
+  }
+  
+  implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.9.24'
+  implementation 'com.google.android.gms:play-services-location:21.0.1'
+  implementation 'androidx.core:core-ktx:1.10.1'
+  
+  // Testing dependencies
+  testImplementation 'junit:junit:4.13.2'
+  testImplementation 'org.mockito:mockito-core:5.3.1'
+  testImplementation 'org.mockito.kotlin:mockito-kotlin:5.0.0'
+  testImplementation 'org.jetbrains.kotlin:kotlin-test-junit:1.9.24'
+  
+  // Android instrumentation tests
+  androidTestImplementation 'androidx.test:runner:1.5.2'
+  androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+  androidTestImplementation 'androidx.test:rules:1.5.0'
+  androidTestImplementation 'com.google.android.gms:play-services-tasks:18.0.2'
+}

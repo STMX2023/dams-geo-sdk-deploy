@@ -1,0 +1,43 @@
+{
+  "platforms": ["android"],
+  "ios": {
+    "infoPlist": {
+      "NSLocationAlwaysAndWhenInUseUsageDescription": "This app needs location access for safety alerts and geofencing",
+      "NSLocationWhenInUseUsageDescription": "This app needs location access for safety alerts",
+      "UIBackgroundModes": ["location", "fetch", "processing"],
+      "NSMotionUsageDescription": "This app uses motion detection to optimize battery usage"
+    },
+    "deploymentTarget": "13.0"
+  },
+  "android": {
+    "minSdkVersion": 21,
+    "targetSdkVersion": 35,
+    "permissions": [
+      "ACCESS_FINE_LOCATION",
+      "ACCESS_COARSE_LOCATION",
+      "ACCESS_BACKGROUND_LOCATION",
+      "FOREGROUND_SERVICE",
+      "FOREGROUND_SERVICE_LOCATION",
+      "ACTIVITY_RECOGNITION"
+    ],
+    "receivers": [
+      {
+        "name": "expo.modules.damsgeo.GeofenceBroadcastReceiver",
+        "exported": false,
+        "enabled": true
+      },
+      {
+        "name": "expo.modules.damsgeo.ActivityRecognitionReceiver",
+        "exported": false,
+        "enabled": true
+      }
+    ],
+    "services": [
+      {
+        "name": "expo.modules.damsgeo.LocationService",
+        "foregroundServiceType": "location",
+        "exported": false
+      }
+    ]
+  }
+}

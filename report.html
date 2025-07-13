@@ -1,0 +1,63 @@
+Code Health Analysis
+============================================================
+Path: /Users/wv2023/projects/dams-geo-sdk-deploy
+Date: 2025-07-12 23:11:02
+
+Overall Health Score: 60/100
+
+Score Breakdown:
+  Test Coverage: 82.7/100
+  Complexity: 30.0/30
+  Dependencies: 20.0/20
+  Documentation: 10.0/10
+
+Key Metrics:
+  Test Coverage: 82.7%
+
+  Code Metrics Summary
+  ======================================================================
+  Total files: 87
+  Total lines: 44,742
+  Code lines: 38,751
+  Comment lines: 1,954
+  Blank lines: 4,037
+  Total size: 1.4 MB
+  
+  Comment ratio: 5.0%
+  
+  Language Distribution:
+  --------------------------------------------------
+  Language           Files   Code Lines Percentage
+  --------------------------------------------------
+  JSON                   5       21,656      55.9%
+  TypeScript            47        8,205      21.2%
+  Markdown              28        7,880      20.3%
+  Swift                  2          865       2.2%
+  JavaScript             3           82       0.2%
+  HTML                   1           38       0.1%
+  Shell                  1           25       0.1%
+
+Critical Issues:
+  ⚠️  5 files need immediate attention
+
+Top Priority Files:
+  1. package-lock.json
+     Score: 215.0 - large file (20999 LOC), undocumented
+  2. src/database/DatabaseManager.ts
+     Score: 158.0 - high complexity (76), large file (600 LOC)
+  3. src/errors/ErrorReporter.ts
+     Score: 108.0 - high complexity (54)
+  4. src/errors/ErrorManager.ts
+     Score: 96.0 - high complexity (48)
+  5. src/geofencing/GeofenceManager.ts
+     Score: 76.0 - high complexity (38)
+  6. src/DamsGeo.ts
+     Score: 69.1 - high complexity (33), large file (312 LOC)
+  7. src/errors/RecoveryStrategies.ts
+     Score: 60.0 - high complexity (30)
+  8. src/errors/ErrorContext.ts
+     Score: 57.8 - high complexity (27), large file (384 LOC)
+  9. src/errors/RetryManager.ts
+     Score: 57.2 - high complexity (27), large file (316 LOC)
+  10. src/logging/Logger.ts
+     Score: 52.0 - high complexity (26)
